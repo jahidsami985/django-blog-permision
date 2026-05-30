@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1>{{ category.name }}</h1>
+    <p><strong>Slug:</strong> <code>{{ category.slug }}</code></p>
+    {% if category.image %}
+      <img src="{{ category.image.url }}" class="img-fluid mb-3" alt="{{ category.name }}">
+    {% endif %}
+    <p><strong>Created:</strong> {{ category.created_at|date:"Y-m-d H:i" }}</p>
+    <a href="{% url 'blogapp:category_list' %}" class="btn btn-secondary">Back to list</a>
+</div>
+{% endblock %}
